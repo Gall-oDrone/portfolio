@@ -167,10 +167,10 @@ else:
     MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, '/build/static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'build/static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 WHITENOISE_USE_FINDERS = True
-STATIC_ROOT = os.path.join(BASE_DIR, 'build')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 SITE_ID = 1
 
