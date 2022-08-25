@@ -13,7 +13,6 @@ ON_HEROKU = False
 DEBUG = True
 if 'DYNO' in os.environ:
     USE_S3 = "TRUE"
-    DEBUG = False
     ON_HEROKU = True
 BASE_DIR = Path(__file__).resolve().parent.parent
 '''
@@ -69,7 +68,7 @@ ROOT_URLCONF = 'home.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, '.next')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -168,10 +167,9 @@ if USE_S3 == "TRUE":
 else:
     MEDIA_URL = '/media/'
 
-STATIC_URL = '/.next/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, '.next/static')]
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, '/build/static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 WHITENOISE_USE_FINDERS = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
