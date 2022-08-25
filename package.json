@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "deploy": "rm -rf output static && next export -o output && mv output static && python ../bin/finalize_marketing_build.py -d static",
     "start": "next start",
     "lint": "next lint"
   },
