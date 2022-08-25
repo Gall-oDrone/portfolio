@@ -6,8 +6,6 @@ ENV/
 **/migrations
 db.sqlite3
 src/package-lock.json
-
 *.db
-
 src/node_modules
 src/.next

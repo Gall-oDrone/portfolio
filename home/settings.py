@@ -5,7 +5,6 @@ import django_heroku
 import dj_database_url
 from dotenv import load_dotenv
 
-# django_heroku.settings(locals())
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv()
 USE_S3 = 'FALSE'
@@ -167,7 +166,7 @@ if USE_S3 == "TRUE":
 else:
     MEDIA_URL = '/media/'
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, '/build/static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 WHITENOISE_USE_FINDERS = True
@@ -188,3 +187,4 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 #options = DATABASES['default'].get('OPTIONS', {})
 #options.pop('sslmode', None)
+django_heroku.settings(locals())
