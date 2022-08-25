@@ -9,8 +9,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/projects/', include('projectsApi.urls')),
     path('api/about/', include('aboutApi.urls')),
-    re_path(r'^.*',
-            TemplateView.as_view(template_name='index.html'))
 ]
 
 if 'DYNO' in os.environ:

@@ -22,8 +22,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(
 '''
 
 SECRET_KEY = "django-insecure-x-^#e34#0ivrk)_p3yzg!*to++u0&(egcvmv0_sw_r*zr0%g0#"
-ALLOWED_HOSTS = ['dgallov-portfolio.herokuapp.com',
-                 '127.0.0.1:8000', 'localhost']
+ALLOWED_HOSTS = ['*']
+if ON_HEROKU:
+    ALLOWED_HOSTS = ['dgallov-portfolio.herokuapp.com',
+                     '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -96,7 +98,10 @@ DATABASES = {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": os.path.join(BASE_DIR, "db.sqlite3")
     },
-    "heroku": {
+}
+
+HEROKU_DB = {
+    "default": {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.getenv("POSTGRES_NAME"),
         'USER': os.getenv("POSTGRES_USER"),
@@ -108,12 +113,10 @@ DATABASES = {
 
 if ON_HEROKU:
     # Configure Django for DATABASE_URL environment variable.
-    DATABASES["heroku"] = dj_database_url.config(
+    HEROKU_DB["default"] = dj_database_url.config(
         conn_max_age=MAX_CONN_AGE, ssl_require=True)
-else:
-    DATABASES["default"] = dj_database_url.config(
-        conn_max_age=MAX_CONN_AGE, ssl_require=True)
-
+    DATABASES = {'default': dj_database_url.config()}
+# DATABASES['heroku'].update(DATABASES["heroku"])
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -185,5 +188,5 @@ DJANGORESIZED_DEFAULT_NORMALIZE_ROTATION = True
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-options = DATABASES['default'].get('OPTIONS', {})
-options.pop('sslmode', None)
+#options = DATABASES['default'].get('OPTIONS', {})
+#options.pop('sslmode', None)

@@ -60,11 +60,11 @@ def set_url_routes():
 
 def set_project_categories():
     try:
-        if (ProjectCategory.objects and len(ProjectCategory.objects.all()) == 0):
+        if (ProjectCategory and ProjectCategory.objects and len(ProjectCategory.objects.all()) == 0):
             for c in PROJECT_CATEGORIES:
                 category = ProjectCategory.objects.create(categories=c[0])
     except Exception as e:
-        print("The categories table does not exist: ", e)
+        print("The 'Project Category' table does not exist: ", e)
 
 
 class ProjectListView(ListAPIView):
