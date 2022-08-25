@@ -3,8 +3,11 @@ from pathlib import Path
 from decouple import config
 import django_heroku
 import dj_database_url
+from dotenv import load_dotenv
 
 # django_heroku.settings(locals())
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+load_dotenv()
 USE_S3 = 'FALSE'
 ON_HEROKU = False
 DEBUG = True
@@ -18,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
 '''
 
-SECRET_KEY = 'django-insecure-x-^#e34#0ivrk)_p3yzg!*to++u0&(egcvmv0_sw_r*zr0%g0#'
+SECRET_KEY = os.getenv('PRODUCTION_SECRET')
 ALLOWED_HOSTS = ['dgallov-portfolio.herokuapp.com',
                  '127.0.0.1:8000', 'localhost']
 
@@ -61,7 +64,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'home.urls'
-# Corso
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -93,11 +95,22 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": os.path.join(BASE_DIR, "db.sqlite3")
+    },
+    "heroku": {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv("POSTGRES_NAME"),
+        'USER': os.getenv("POSTGRES_USER"),
+        'PASSWORD': os.getenv("POSTGRES_PASSWORD"),
+        'HOST': os.getenv("POSTGRES_HOST"),
+        'PORT': os.getenv("POSTGRES_PORT"),
     }
 }
 
-if "DATABASE_URL" in os.environ:
+if ON_HEROKU:
     # Configure Django for DATABASE_URL environment variable.
+    DATABASES["heroku"] = dj_database_url.config(
+        conn_max_age=MAX_CONN_AGE, ssl_require=True)
+else:
     DATABASES["default"] = dj_database_url.config(
         conn_max_age=MAX_CONN_AGE, ssl_require=True)
 
