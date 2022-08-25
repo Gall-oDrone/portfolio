@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
 '''
 
-SECRET_KEY = config('PRODUCTION_SECRET')
+SECRET_KEY = os.environ["PRODUCTION_SECRET"]
 ALLOWED_HOSTS = ['dgallov-portfolio.herokuapp.com',
                  '127.0.0.1:8000', 'localhost']
 
