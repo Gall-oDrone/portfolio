@@ -8,8 +8,8 @@ let mediaURL = null;
 if (global?.window && window.innerHeight){
   publicUrl = new URL(process.env.PUBLIC_URL, window.location);
   if (process.env.NODE_ENV === "production"){
-    localhost = 'https://py3-test-app.herokuapp.com'
-    files = 'https://py3-test-app-bucket.s3.amazonaws.com'
+    localhost = 'https://dgallov-portfolio.herokuapp.com'
+    files = 'https://dgallov-portfolio-bucket.s3.amazonaws.com'
     console.log("process.env.PUBLIC_URL", JSON.stringify(process.env.PUBLIC_URL))
     console.log("window.location", JSON.stringify(window.location))
     console.log("publicUrl", JSON.stringify(publicUrl))
