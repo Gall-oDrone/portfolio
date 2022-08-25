@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
 '''
 
-SECRET_KEY = os.environ["PRODUCTION_SECRET"]
+SECRET_KEY = 'django-insecure-x-^#e34#0ivrk)_p3yzg!*to++u0&(egcvmv0_sw_r*zr0%g0#'
 ALLOWED_HOSTS = ['dgallov-portfolio.herokuapp.com',
                  '127.0.0.1:8000', 'localhost']
 
@@ -86,13 +86,20 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8000",
     "https://dgallov-portfolio.herokuapp.com",
 ]
-if ON_HEROKU:
-    DATABASE_URL = 'postgresql://<postgresql>'
-else:
-    DATABASE_URL = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
-DATABASES = {'default': dj_database_url.config(
-    default=DATABASE_URL, conn_max_age=600)}
+MAX_CONN_AGE = 600
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3")
+    }
+}
+
+if "DATABASE_URL" in os.environ:
+    # Configure Django for DATABASE_URL environment variable.
+    DATABASES["default"] = dj_database_url.config(
+        conn_max_age=MAX_CONN_AGE, ssl_require=True)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
