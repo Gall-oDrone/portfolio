@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
 '''
 
-SECRET_KEY = "django-insecure-x-^#e34#0ivrk)_p3yzg!*to++u0&(egcvmv0_sw_r*zr0%g0#"
+SECRET_KEY = os.getenv("PRODUCTION_SECRET")
 ALLOWED_HOSTS = ['*']
 if ON_HEROKU:
     ALLOWED_HOSTS = ['dgallov-portfolio.herokuapp.com',
