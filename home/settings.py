@@ -4,7 +4,7 @@ from decouple import config
 import django_heroku
 import dj_database_url
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 USE_S3 = 'FALSE'
 ON_HEROKU = False
 DEBUG = True
@@ -12,9 +12,11 @@ if 'DYNO' in os.environ:
     USE_S3 = "TRUE"
     DEBUG = False
     ON_HEROKU = True
-#BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
+'''
 BASE_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
+'''
 
 SECRET_KEY = 'django-insecure-x-^#e34#0ivrk)_p3yzg!*to++u0&(egcvmv0_sw_r*zr0%g0#'
 ALLOWED_HOSTS = ['dgallov-portfolio.herokuadpp.com',

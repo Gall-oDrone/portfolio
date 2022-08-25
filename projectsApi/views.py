@@ -31,19 +31,6 @@ from rest_framework.generics import (
 import json
 
 
-# Add this CBV
-class Assets(View):
-
-    def get(self, _request, filename):
-        path = os.path.join(os.path.dirname(__file__), 'static', filename)
-
-        if os.path.isfile(path):
-            with open(path, 'rb') as file:
-                return HttpResponse(file.read(), content_type='application/javascript')
-        else:
-            return HttpResponseNotFound()
-
-
 def set_stacks():
     try:
         if (Stack.objects and len(Stack.objects.all()) == 0):
