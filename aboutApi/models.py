@@ -141,7 +141,7 @@ class PersonalInfo(models.Model):
     # TOADD: Date of birth
     profession = models.CharField(max_length=50, blank=True)
     phone = models.ManyToManyField(
-        PhoneModel, related_name="personal_phone", blank=True, null=True)
+        PhoneModel, related_name="personal_phone", blank=True)
     about_me = models.TextField(max_length=500, blank=True)
 
     def __str__(self):
@@ -149,14 +149,14 @@ class PersonalInfo(models.Model):
 
 
 class Education(models.Model):
-    academic_degree = models.ManyToManyField(Degree, null=True, blank=True)
+    academic_degree = models.ManyToManyField(Degree, blank=True)
     undergrad = models.ForeignKey(
         UserUndergraduate, null=True, blank=True, on_delete=models.CASCADE)
-    bachelor = models.ManyToManyField(UserBachelor, null=True, blank=True)
-    master = models.ManyToManyField(UserMaster, null=True, blank=True)
-    phd = models.ManyToManyField(UserDoctorate, null=True, blank=True)
+    bachelor = models.ManyToManyField(UserBachelor, blank=True)
+    master = models.ManyToManyField(UserMaster, blank=True)
+    phd = models.ManyToManyField(UserDoctorate, blank=True)
     other_edu = models.ManyToManyField(
-        UserDiplomaOrCertificate, null=True, blank=True)
+        UserDiplomaOrCertificate, blank=True)
 
 
 class JobActivityDescription(models.Model):
@@ -215,9 +215,9 @@ class ProfileInfo(models.Model):
     job_position = models.CharField(max_length=400, blank=True, null=True)
 
     contact_forms = models.ManyToManyField(
-        ContactForm, related_name="user_contactform", blank=True, null=True)
+        ContactForm, related_name="user_contactform", blank=True)
     langauges = models.ManyToManyField(
-        Language, related_name="user_language", blank=True, null=True)
+        Language, related_name="user_language", blank=True)
     website = models.CharField(max_length=50, blank=True, null=True)
     message = models.CharField(max_length=150, blank=True, null=True)
     github = models.CharField(max_length=50, blank=True, null=True)

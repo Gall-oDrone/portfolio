@@ -69,7 +69,7 @@ ROOT_URLCONF = 'home.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, '.next')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -168,7 +168,7 @@ if USE_S3 == "TRUE":
 else:
     MEDIA_URL = '/media/'
 
-STATIC_URL = '/build/static/'
+STATIC_URL = '/.next/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, '.next/static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
