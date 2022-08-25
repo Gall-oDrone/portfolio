@@ -67,8 +67,7 @@ ROOT_URLCONF = 'home.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 'DIRS': [os.path.join(BASE_DIR, 'build/server/pages')],
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'build/server/pages')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -171,7 +170,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, '/build/static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 WHITENOISE_USE_FINDERS = True
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'build')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 SITE_ID = 1
 
