@@ -168,7 +168,7 @@ if USE_S3 == "TRUE":
 else:
     MEDIA_URL = '/media/'
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'build/static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
