@@ -61,7 +61,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'home.urls'
-
+# Corso
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
