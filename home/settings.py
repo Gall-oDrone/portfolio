@@ -18,8 +18,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
 '''
 
-SECRET_KEY = 'django-insecure-x-^#e34#0ivrk)_p3yzg!*to++u0&(egcvmv0_sw_r*zr0%g0#'
-ALLOWED_HOSTS = ['dgallov-portfolio.herokuadpp.com',
+SECRET_KEY = config('PRODUCTION_SECRET')
+ALLOWED_HOSTS = ['dgallov-portfolio.herokuapp.com',
                  '127.0.0.1:8000', 'localhost']
 
 
@@ -145,7 +145,7 @@ if USE_S3 == "TRUE":
 else:
     MEDIA_URL = '/media/'
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'src/.next/static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
