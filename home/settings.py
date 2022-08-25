@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
 '''
 
-SECRET_KEY = 'django-insecure-x-^#e34#0ivrk)_p3yzg!*to++u0&(egcvmv0_sw_r*zr0%g0#'
+SECRET_KEY = os.getenv("SECRET_KEY")
 ALLOWED_HOSTS = ['*']
 if ON_HEROKU:
     ALLOWED_HOSTS = ['dgallov-portfolio.herokuapp.com',
@@ -169,7 +169,7 @@ else:
     MEDIA_URL = '/media/'
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, '.next/static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'build/static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 WHITENOISE_USE_FINDERS = True
