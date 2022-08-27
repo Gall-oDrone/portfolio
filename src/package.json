@@ -11,8 +11,8 @@
     "lint": "next lint"
   },
   "engines": {
-    "node": "16.17.0",
-    "npm": "6.14.9"
+    "node": "^16.17.0",
+    "npm": "^6.14.9"
   },
   "dependencies": {
     "axios": "^0.27.2",
