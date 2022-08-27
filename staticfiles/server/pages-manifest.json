@@ -1,8 +1,0 @@
-{
-  "/_error": "pages/_error.js",
-  "/projects/[project_id]": "pages/projects/[project_id].html",
-  "/": "pages/index.html",
-  "/_app": "pages/_app.js",
-  "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
-}

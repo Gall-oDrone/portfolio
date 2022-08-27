@@ -35,6 +35,14 @@ const Contact = () => {
     return;
   }
 
+  function handelContactForms(forms, contactType) {
+    var val = "";
+    forms.map(el => {
+       if (el.form === contactType)  val = el.value ;
+    });
+    return val==='WhatsApp'?sendWhatsAppMsg(phone): val
+  }
+
   return (
     forms&&
     <div id='contact' className='w-full lg:h-screen'>
@@ -65,7 +73,7 @@ const Contact = () => {
               <div>
                 <p className='uppercase pt-8'>Connect With Me</p>
                 <div className='flex items-center justify-between py-4'>
-                  {forms&&forms.contact_forms&&<SocialMediaContact contact_forms={forms.contact_forms}/>}
+                  {<SocialMediaContact forms={forms.contact_forms} formValidator={handelContactForms} />}
                 </div>
               </div>
             </div>
@@ -74,7 +82,7 @@ const Contact = () => {
           {/* right */}
           <div className='col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
             <div className='p-4'>
-              <form action={`mailto:${forms.contact_forms.filter(cf => cf.form==="Email")[0].value}`} method="post" encType="text/plain">
+              <form action={`mailto:${handelContactForms(forms.contact_forms, "Email")}`} method="post" encType="text/plain">
                 <div className='grid md:grid-cols-2 gap-4 w-full py-2'>
                   <div className='flex flex-col'>
                     <label className='uppercase text-sm py-2'>Name</label>
