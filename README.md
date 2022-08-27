@@ -1,6 +1,18 @@
+## Full Stack Portfolio hosted on Heroku and Netlify
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
+
+#### Backend
+
+First, a Python virtual environment then run the following commands:
+
+```bash
+pip install -r /path/to/requirements.txt
+```
+
+#### Frontend
 
 First, run the development server:
 

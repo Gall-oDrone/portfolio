@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import {aboutMeInfoURL} from "../constants/constants";
