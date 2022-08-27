@@ -73,7 +73,7 @@ const Contact = () => {
               <div>
                 <p className='uppercase pt-8'>Connect With Me</p>
                 <div className='flex items-center justify-between py-4'>
-                  {<SocialMediaContact forms={forms.contact_forms} formValidator={handelContactForms} />}
+                  {forms&&forms.contact_forms&&<SocialMediaContact contact_forms={forms.contact_forms} />}
                 </div>
               </div>
             </div>
