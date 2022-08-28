@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import React from 'react';
 import html from "../public/assets/skills/html.png";
-import css from "../public/assets/skills/css.PNG";
-import javascript from "../public/assets/skills/javascript.PNG";
-import react from "../public/assets/skills/react.PNG";
-import shopify from "../public/assets/skills/shopify.PNG";
-import github1 from "../public/assets/skills/github1.PNG";
-import firebase from "../public/assets/skills/firebase.PNG";
-import tailwind from "../public/assets/skills/tailwind.PNG";
+import css from "../public/assets/skills/css.png";
+import javascript from "../public/assets/skills/javascript.png";
+import react from "../public/assets/skills/react.png";
+import shopify from "../public/assets/skills/shopify.png";
+import github1 from "../public/assets/skills/github1.png";
+import firebase from "../public/assets/skills/firebase.png";
+import tailwind from "../public/assets/skills/tailwind.png";
 const Skills = () => {
   return (
     <div id='skills' className='w-full lg:h-screen p-2'>
