@@ -7,11 +7,11 @@ from dotenv import load_dotenv
 
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv()
-USE_S3 = 'FALSE'
+USE_S3 = False
 ON_HEROKU = False
 DEBUG = True
 if 'DYNO' in os.environ:
-    USE_S3 = "TRUE"
+    USE_S3 = True
     ON_HEROKU = True
 BASE_DIR = Path(__file__).resolve().parent.parent
 '''
@@ -146,8 +146,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-if USE_S3 == "TRUE":
+if USE_S3:
     # AWS
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
