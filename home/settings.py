@@ -159,7 +159,7 @@ if USE_S3 == "TRUE":
 
     PUBLIC_MEDIA_LOCATION = 'media'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
-    DEFAULT_FILE_STORAGE = 'home.settings.storage_backends.MediaStorage'
+    DEFAULT_FILE_STORAGE = 'home.storage_backends.MediaStorage'
 else:
     MEDIA_URL = '/media/'
 
