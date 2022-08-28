@@ -148,8 +148,7 @@ USE_L10N = True
 USE_TZ = True
 
 if USE_S3 == "TRUE":
-    # #AWS
-    '''
+    # AWS
     AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
     AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
@@ -161,8 +160,6 @@ if USE_S3 == "TRUE":
     PUBLIC_MEDIA_LOCATION = 'media'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
     DEFAULT_FILE_STORAGE = 'home.settings.storage_backends.MediaStorage'
-    '''
-    MEDIA_URL = '/media/'
 else:
     MEDIA_URL = '/media/'
 
@@ -184,7 +181,4 @@ DJANGORESIZED_DEFAULT_FORMAT_EXTENSIONS = {'JPEG': ".jpg"}
 DJANGORESIZED_DEFAULT_NORMALIZE_ROTATION = True
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-#options = DATABASES['default'].get('OPTIONS', {})
-#options.pop('sslmode', None)
 django_heroku.settings(locals())
