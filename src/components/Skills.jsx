@@ -1,6 +1,13 @@
 import Image from 'next/image';
 import React from 'react';
-
+import html from '../public/assets/skills/html.PNG';
+import css from '../public/assets/skills/css.PNG';
+import javascript from '../public/assets/skills/javascript.PNG';
+import react from '../public/assets/skills/react.PNG';
+import shopify from '../public/assets/skills/shopify.PNG';
+import github1 from '../public/assets/skills/github1.PNG';
+import firebase from '../public/assets/skills/firebase.PNG';
+import tailwind from '../public/assets/skills/tailwind.PNG';
 const Skills = () => {
   return (
     <div id='skills' className='w-full lg:h-screen p-2'>
@@ -15,7 +22,7 @@ const Skills = () => {
             <div className='grid grid-cols-2 gap-4 justify-center items-center'>
               <div className='m-auto'>
                 <Image
-                  src='/../public/assets/skills/html.PNG'
+                  src={html}
                   width='64px'
                   height='64px'
                   alt='/'
@@ -30,7 +37,7 @@ const Skills = () => {
             <div className='grid grid-cols-2 gap-4 justify-center items-center'>
               <div className='m-auto'>
                 <Image
-                  src='/../public/assets/skills/css.PNG'
+                  src={css}
                   width='64px'
                   height='64px'
                   alt='/'
@@ -45,7 +52,7 @@ const Skills = () => {
             <div className='grid grid-cols-2 gap-4 justify-center items-center'>
               <div className='m-auto'>
                 <Image
-                  src='/../public/assets/skills/javascript.PNG'
+                  src={javascript}
                   width='64px'
                   height='64px'
                   alt='/'
@@ -60,7 +67,7 @@ const Skills = () => {
             <div className='grid grid-cols-2 gap-4 justify-center items-center'>
               <div className='m-auto'>
                 <Image
-                  src='/../public/assets/skills/react.PNG'
+                  src={react}
                   width='64px'
                   height='64px'
                   alt='/'
@@ -75,7 +82,7 @@ const Skills = () => {
             <div className='grid grid-cols-2 gap-4 justify-center items-center'>
               <div className='m-auto'>
                 <Image
-                  src='/../public/assets/skills/tailwind.PNG'
+                  src={tailwind}
                   width='64px'
                   height='64px'
                   alt='/'
@@ -90,7 +97,7 @@ const Skills = () => {
             <div className='grid grid-cols-2 gap-4 justify-center items-center'>
               <div className='m-auto'>
                 <Image
-                  src='/../public/assets/skills/firebase.PNG'
+                  src={firebase}
                   width='64px'
                   height='64px'
                   alt='/'
@@ -105,7 +112,7 @@ const Skills = () => {
             <div className='grid grid-cols-2 gap-4 justify-center items-center'>
               <div className='m-auto'>
                 <Image
-                  src='/../public/assets/skills/github1.PNG'
+                  src={github1}
                   width='64px'
                   height='64px'
                   alt='/'
@@ -120,7 +127,7 @@ const Skills = () => {
             <div className='grid grid-cols-2 gap-4 justify-center items-center'>
               <div className='m-auto'>
                 <Image
-                  src='/../public/assets/skills/shopify.PNG'
+                  src={shopify}
                   width='64px'
                   height='64px'
                   alt='/'
@@ -131,8 +138,6 @@ const Skills = () => {
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
     </div>
