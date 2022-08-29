@@ -98,6 +98,8 @@ class Image(models.Model):
     def __str__(self):
         return str(self.image)
 
+
+'''
     def save(self, *args, **kwargs):
         if USE_S3:
             image_resize(self.image, 1920, 1080)
@@ -111,6 +113,7 @@ class Image(models.Model):
                 new_width = 2000
                 img = img.resize((new_width, new_height))
                 img.save(self.image.path)
+'''
 
 
 class Stack(models.Model):
