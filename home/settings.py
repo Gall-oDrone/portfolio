@@ -11,7 +11,7 @@ USE_S3 = False
 ON_HEROKU = False
 DEBUG = True
 if 'DYNO' in os.environ:
-    #USE_S3 = True
+    USE_S3 = True
     ON_HEROKU = True
 BASE_DIR = Path(__file__).resolve().parent.parent
 '''
@@ -168,7 +168,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 WHITENOISE_USE_FINDERS = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 SITE_ID = 1
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
