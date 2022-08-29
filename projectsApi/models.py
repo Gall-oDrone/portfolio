@@ -5,6 +5,10 @@ from django_resized import ResizedImageField
 from io import BytesIO
 from PIL import Image as PilImg
 from constants import *
+from .utils import image_resize
+from django.conf import settings
+
+USE_S3 = settings.USE_S3
 
 
 def generateUUID():
@@ -95,10 +99,12 @@ class Image(models.Model):
         return str(self.image)
 
     def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-
-        if self.image:  # check if image exists before resize
-            img = PilImg.open(self.image.path)
+        if USE_S3:
+            image_resize(self.image, 1920, 1080)
+            super().save(*args, **kwargs)
+        else:
+            if self.image:  # check if image exists before resize
+                img = PilImg.open(self.image.path)
 
             if img.height < 1080 or img.width < 1920:
                 new_height = 1391
