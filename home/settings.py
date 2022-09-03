@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'projectsApi',
     'aboutApi',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -158,8 +159,7 @@ if USE_S3:
 
     PUBLIC_MEDIA_LOCATION = 'media'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
-    # DEFAULT_FILE_STORAGE = 'home.storage_backend.MediaStorage'
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    DEFAULT_FILE_STORAGE = 'home.storage_backend.MediaStorage'
 else:
     MEDIA_URL = '/media/'
 
